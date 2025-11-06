@@ -1,0 +1,162 @@
+---
+title: "SHCP Debt Counter"
+format: html
+---
+
+## Welcome to the SHCP Debt Counter
+
+This interactive website helps track debts for services, rents, and charges.
+
+### Current Total Debt
+
+::: {#debt-display}
+<div class="debt-counter">
+  <h2>Total Debt: $<span id="total-debt">0.00</span></h2>
+</div>
+:::
+
+### Add New Debt
+
+::: {#add-debt-section}
+<div class="input-section">
+  <h3>Add Debt Item</h3>
+  <label for="debt-description">Description (Service/Rent/Charge):</label>
+  <input type="text" id="debt-description" placeholder="Enter description">
+  
+  <label for="debt-amount">Amount ($):</label>
+  <input type="number" id="debt-amount" step="0.01" placeholder="0.00">
+  
+  <button onclick="addDebt()">Add Debt</button>
+</div>
+:::
+
+### Record Payment
+
+::: {#payment-section}
+<div class="input-section">
+  <h3>Record Payment</h3>
+  <label for="payment-amount">Payment Amount ($):</label>
+  <input type="number" id="payment-amount" step="0.01" placeholder="0.00">
+  
+  <button onclick="addPayment()">Record Payment</button>
+</div>
+:::
+
+### Debt History
+
+::: {#debt-history}
+<div id="debt-list"></div>
+:::
+
+### Payment History
+
+::: {#payment-history}
+<div id="payment-list"></div>
+:::
+
+```{=html}
+<script>
+  // Initialize data from localStorage
+  let debts = JSON.parse(localStorage.getItem('shcp-debts') || '[]');
+  let payments = JSON.parse(localStorage.getItem('shcp-payments') || '[]');
+
+  function addDebt() {
+    const description = document.getElementById('debt-description').value;
+    const amount = parseFloat(document.getElementById('debt-amount').value);
+    
+    if (!description || isNaN(amount) || amount <= 0) {
+      alert('Please enter a valid description and amount');
+      return;
+    }
+    
+    const debt = {
+      id: Date.now(),
+      description: description,
+      amount: amount,
+      date: new Date().toLocaleString()
+    };
+    
+    debts.push(debt);
+    localStorage.setItem('shcp-debts', JSON.stringify(debts));
+    
+    document.getElementById('debt-description').value = '';
+    document.getElementById('debt-amount').value = '';
+    
+    updateDisplay();
+  }
+
+  function addPayment() {
+    const amount = parseFloat(document.getElementById('payment-amount').value);
+    
+    if (isNaN(amount) || amount <= 0) {
+      alert('Please enter a valid payment amount');
+      return;
+    }
+    
+    const payment = {
+      id: Date.now(),
+      amount: amount,
+      date: new Date().toLocaleString()
+    };
+    
+    payments.push(payment);
+    localStorage.setItem('shcp-payments', JSON.stringify(payments));
+    
+    document.getElementById('payment-amount').value = '';
+    
+    updateDisplay();
+  }
+
+  function deleteDebt(id) {
+    debts = debts.filter(d => d.id !== id);
+    localStorage.setItem('shcp-debts', JSON.stringify(debts));
+    updateDisplay();
+  }
+
+  function deletePayment(id) {
+    payments = payments.filter(p => p.id !== id);
+    localStorage.setItem('shcp-payments', JSON.stringify(payments));
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    // Calculate total
+    const totalDebt = debts.reduce((sum, debt) => sum + debt.amount, 0);
+    const totalPayments = payments.reduce((sum, payment) => sum + payment.amount, 0);
+    const netDebt = totalDebt - totalPayments;
+    
+    document.getElementById('total-debt').textContent = netDebt.toFixed(2);
+    document.getElementById('total-debt').className = netDebt > 0 ? 'positive' : 'negative';
+    
+    // Display debts
+    const debtList = document.getElementById('debt-list');
+    debtList.innerHTML = debts.length === 0 
+      ? '<p class="empty-message">No debts recorded yet.</p>'
+      : '<table class="history-table"><thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Action</th></tr></thead><tbody>' +
+        debts.map(debt => `
+          <tr>
+            <td>${debt.date}</td>
+            <td>${debt.description}</td>
+            <td class="amount debt-amount">$${debt.amount.toFixed(2)}</td>
+            <td><button onclick="deleteDebt(${debt.id})" class="delete-btn">Delete</button></td>
+          </tr>
+        `).join('') + '</tbody></table>';
+    
+    // Display payments
+    const paymentList = document.getElementById('payment-list');
+    paymentList.innerHTML = payments.length === 0 
+      ? '<p class="empty-message">No payments recorded yet.</p>'
+      : '<table class="history-table"><thead><tr><th>Date</th><th>Amount</th><th>Action</th></tr></thead><tbody>' +
+        payments.map(payment => `
+          <tr>
+            <td>${payment.date}</td>
+            <td class="amount payment-amount">$${payment.amount.toFixed(2)}</td>
+            <td><button onclick="deletePayment(${payment.id})" class="delete-btn">Delete</button></td>
+          </tr>
+        `).join('') + '</tbody></table>';
+  }
+
+  // Initialize display on load
+  updateDisplay();
+</script>
+```

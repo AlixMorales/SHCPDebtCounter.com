@@ -1,0 +1,35 @@
+---
+title: "About"
+format: html
+---
+
+## About SHCP Debt Counter
+
+This website helps you keep track of debts for services, rents, and charges in a fun and interactive way.
+
+### Features
+
+- **Add Debts**: Input services, rents, or charges with their monetary values
+- **Record Payments**: Enter payments made and automatically deduct them from the total debt
+- **Visualize Debts**: See all debts and payments in an organized table
+- **Total Debt Sum**: Automatically calculates the net debt (total debts minus total payments)
+- **Persistent Storage**: Your data is stored locally in your browser
+
+### How to Use
+
+1. **Add a Debt**: Enter a description and amount, then click "Add Debt"
+2. **Record Payment**: Enter the payment amount and click "Record Payment"
+3. **View History**: See all your debts and payments in the history sections
+4. **Delete Items**: Remove any debt or payment by clicking the "Delete" button
+
+### Data Storage
+
+All data is stored locally in your browser using localStorage. This means:
+
+- Your data persists between sessions
+- Your data is private and never sent to any server
+- Clearing your browser data will reset the counter
+
+---
+
+*Created with [Quarto](https://quarto.org/)*

@@ -1,1 +1,2 @@
 # SHCPDebtCounter.com
+This repository will keep track of SHCP Debt through a fun and interactive website! Contains an update function that allows me to input the Service/Rent/Charge and the monetary value assigned to it. The app will visualize the debts and also get the total debt sum. Additionally, the app will allow me to enter money paid to me and discount this from the current debt total.
