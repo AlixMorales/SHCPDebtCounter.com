@@ -5,9 +5,10 @@ format: html
 
 ## About SHCP Debt Counter
 
-This website helps you keep track of debts for services, rents, and charges in a fun and interactive way.
+This website came to me in the middle of sitting through a CNN lecture where I happened to remember about the utter importance of SHCP Debt. I then had an epiphany and realized that I could turn my dream (shcpdebttracker.com) into a reality! With this vibe coded quarto app I can track the shcp debts!
 
 ### Features
+Pretty Damn self explanatory but if someone messes with this site (plz dont) this is how you can fuck up my tracker:
 
 - **Add Debts**: Input services, rents, or charges with their monetary values
 - **Record Payments**: Enter payments made and automatically deduct them from the total debt
@@ -16,6 +17,7 @@ This website helps you keep track of debts for services, rents, and charges in a
 - **Persistent Storage**: Your data is stored locally in your browser
 
 ### How to Use
+Read Above
 
 1. **Add a Debt**: Enter a description and amount, then click "Add Debt"
 2. **Record Payment**: Enter the payment amount and click "Record Payment"
@@ -24,7 +26,7 @@ This website helps you keep track of debts for services, rents, and charges in a
 
 ### Data Storage
 
-All data is stored locally in your browser using localStorage. This means:
+All data is stored locally in your browser using localStorage. This means... you can't fuck with my actual counter 🤪🤪
 
 - Your data persists between sessions
 - Your data is private and never sent to any server
