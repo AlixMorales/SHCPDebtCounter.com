@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This website helps you keep track of debts for services, rents, and charges in a fun and interactive way.\n\n\n\nAdd Debts: Input services, rents, or charges with their monetary values\nRecord Payments: Enter payments made and automatically deduct them from the total debt\nVisualize Debts: See all debts and payments in an organized table\nTotal Debt Sum: Automatically calculates the net debt (total debts minus total payments)\nPersistent Storage: Your data is stored locally in your browser\n\n\n\n\n\nAdd a Debt: Enter a description and amount, then click “Add Debt”\nRecord Payment: Enter the payment amount and click “Record Payment”\nView History: See all your debts and payments in the history sections\nDelete Items: Remove any debt or payment by clicking the “Delete” button\n\n\n\n\nAll data is stored locally in your browser using localStorage. This means:\n\nYour data persists between sessions\nYour data is private and never sent to any server\nClearing your browser data will reset the counter\n\n\nCreated with Quarto"
+  },
+  {
+    "objectID": "about.html#about-shcp-debt-counter",
+    "href": "about.html#about-shcp-debt-counter",
+    "title": "About",
+    "section": "",
+    "text": "This website helps you keep track of debts for services, rents, and charges in a fun and interactive way.\n\n\n\nAdd Debts: Input services, rents, or charges with their monetary values\nRecord Payments: Enter payments made and automatically deduct them from the total debt\nVisualize Debts: See all debts and payments in an organized table\nTotal Debt Sum: Automatically calculates the net debt (total debts minus total payments)\nPersistent Storage: Your data is stored locally in your browser\n\n\n\n\n\nAdd a Debt: Enter a description and amount, then click “Add Debt”\nRecord Payment: Enter the payment amount and click “Record Payment”\nView History: See all your debts and payments in the history sections\nDelete Items: Remove any debt or payment by clicking the “Delete” button\n\n\n\n\nAll data is stored locally in your browser using localStorage. This means:\n\nYour data persists between sessions\nYour data is private and never sent to any server\nClearing your browser data will reset the counter\n\n\nCreated with Quarto"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SHCP Debt Counter",
+    "section": "",
+    "text": "This interactive website helps track debts for services, rents, and charges.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription (Service/Rent/Charge): \nAmount ($): \nAdd Debt\n\n\n\n\n\n\n\n\nPayment Amount ($): \nRecord Payment"
+  },
+  {
+    "objectID": "index.html#welcome-to-the-shcp-debt-counter",
+    "href": "index.html#welcome-to-the-shcp-debt-counter",
+    "title": "SHCP Debt Counter",
+    "section": "",
+    "text": "This interactive website helps track debts for services, rents, and charges.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription (Service/Rent/Charge): \nAmount ($): \nAdd Debt\n\n\n\n\n\n\n\n\nPayment Amount ($): \nRecord Payment"
+  }
+]
